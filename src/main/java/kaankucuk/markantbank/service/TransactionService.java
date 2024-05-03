@@ -52,6 +52,7 @@ public class TransactionService {
         account.setBalance(account.getBalance().subtract(amountOfWithdraw));
         Transaction transaction = transactionStrategies.get(TransactionType.WITHDRAW).createTransaction(account, amountOfWithdraw);
         account.getTransactions().add(transaction);
+        transactionRepository.save(transaction);
         accountService.saveAccount(account);
         return withdrawRequestConverter.convert(account);
     }

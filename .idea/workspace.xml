@@ -5,23 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ca664e5-3c51-4839-9984-f21594a0c149" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/controller/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/controller/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/controller/TransactionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/dto/TransactionHistoryDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/dto/TransactionHistoryDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/dto/TransactionHistoryDtoConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/dto/TransactionHistoryDtoConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/kaankucuk/markantbank/service/TransactionServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/model/Account.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/model/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/model/TransactionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/model/TransactionType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/repository/TransactionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/repository/TransactionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/service/AccountService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/service/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/service/TransactionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/controller/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/controller/AccountController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/controller/TransactionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/controller/TransactionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/dto/TransactionHistoryDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/dto/TransactionHistoryDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/dto/AccountDto$AccountDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/dto/AccountDto$AccountDtoBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/exception/GeneralExceptionAdvisor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/exception/GeneralExceptionAdvisor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/model/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/model/Account.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/model/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/model/Transaction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/model/TransactionType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/model/TransactionType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/repository/TransactionRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/repository/TransactionRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/service/AccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/service/AccountService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/service/TransactionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/service/TransactionService.class" afterDir="false" />
     </list>
@@ -35,6 +28,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -60,38 +54,52 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.MarkantbankApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.MarkantbankApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;newone&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/KaanPC/Desktop/BankApp-master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;jvm.logging&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.MarkantbankApplication.executor": "Run",
+    "JUnit.TransactionServiceTest.depositMoney_AccountDoesNotExist_CreatesNewAccount.executor": "Run",
+    "JUnit.TransactionServiceTest.depositMoney_LessThanMinimumAmount_ShouldThrowException.executor": "Run",
+    "JUnit.TransactionServiceTest.depositMoney_NegativeAmount_ThrowsIllegalArgumentException.executor": "Run",
+    "JUnit.TransactionServiceTest.depositMoney_SuccessfulDeposit_IncreasesBalanceAndStoresTransaction.executor": "Run",
+    "JUnit.TransactionServiceTest.withdrawMoney_AccountNotFound_ThrowsException.executor": "Run",
+    "JUnit.TransactionServiceTest.withdrawMoney_SuccessfulWithdrawal_DecreasesBalanceAndStoresTransaction.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.MarkantbankApplication.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/smartLITE VS700/Desktop/BankApp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "jvm.logging",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="kaankucuk.markantbank.exception" />
     </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="kaankucuk.markantbank.service" />
+    </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.MarkantbankApplication">
+  <component name="RunManager" selected="JUnit.TransactionServiceTest.withdrawMoney_AccountNotFound_ThrowsException">
     <configuration name="MarkantbankApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="kaankucuk.markantbank.MarkantbankApplication" />
       <module name="markantbank" />
@@ -105,6 +113,86 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TransactionServiceTest.depositMoney_AccountDoesNotExist_CreatesNewAccount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="markantbank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kaankucuk.markantbank.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="kaankucuk.markantbank.service" />
+      <option name="MAIN_CLASS_NAME" value="kaankucuk.markantbank.service.TransactionServiceTest" />
+      <option name="METHOD_NAME" value="depositMoney_AccountDoesNotExist_CreatesNewAccount" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TransactionServiceTest.depositMoney_LessThanMinimumAmount_ShouldThrowException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="markantbank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kaankucuk.markantbank.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="kaankucuk.markantbank.service" />
+      <option name="MAIN_CLASS_NAME" value="kaankucuk.markantbank.service.TransactionServiceTest" />
+      <option name="METHOD_NAME" value="depositMoney_LessThanMinimumAmount_ShouldThrowException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TransactionServiceTest.depositMoney_SuccessfulDeposit_IncreasesBalanceAndStoresTransaction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="markantbank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kaankucuk.markantbank.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="kaankucuk.markantbank.service" />
+      <option name="MAIN_CLASS_NAME" value="kaankucuk.markantbank.service.TransactionServiceTest" />
+      <option name="METHOD_NAME" value="depositMoney_SuccessfulDeposit_IncreasesBalanceAndStoresTransaction" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TransactionServiceTest.withdrawMoney_AccountNotFound_ThrowsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="markantbank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kaankucuk.markantbank.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="kaankucuk.markantbank.service" />
+      <option name="MAIN_CLASS_NAME" value="kaankucuk.markantbank.service.TransactionServiceTest" />
+      <option name="METHOD_NAME" value="withdrawMoney_AccountNotFound_ThrowsException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TransactionServiceTest.withdrawMoney_SuccessfulWithdrawal_DecreasesBalanceAndStoresTransaction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="markantbank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kaankucuk.markantbank.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="kaankucuk.markantbank.service" />
+      <option name="MAIN_CLASS_NAME" value="kaankucuk.markantbank.service.TransactionServiceTest" />
+      <option name="METHOD_NAME" value="withdrawMoney_SuccessfulWithdrawal_DecreasesBalanceAndStoresTransaction" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MarkantbankApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="markantbank" />
@@ -113,6 +201,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TransactionServiceTest.withdrawMoney_AccountNotFound_ThrowsException" />
+        <item itemvalue="JUnit.TransactionServiceTest.withdrawMoney_SuccessfulWithdrawal_DecreasesBalanceAndStoresTransaction" />
+        <item itemvalue="JUnit.TransactionServiceTest.depositMoney_AccountDoesNotExist_CreatesNewAccount" />
+        <item itemvalue="JUnit.TransactionServiceTest.depositMoney_SuccessfulDeposit_IncreasesBalanceAndStoresTransaction" />
+        <item itemvalue="JUnit.TransactionServiceTest.depositMoney_LessThanMinimumAmount_ShouldThrowException" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -140,6 +237,7 @@
       <workItem from="1714598614218" duration="222000" />
       <workItem from="1714676652807" duration="10120000" />
       <workItem from="1714716456332" duration="425000" />
+      <workItem from="1714727611519" duration="11814000" />
     </task>
     <servers />
   </component>
