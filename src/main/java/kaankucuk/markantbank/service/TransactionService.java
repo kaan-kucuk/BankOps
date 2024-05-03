@@ -72,7 +72,7 @@ public class TransactionService {
 
         Transaction recieveTransaction = transactionStrategies.get(TransactionType.TRANSFER).createTransaction(toAccounts, amountOfMoney);
         toAccounts.getTransactions().add(recieveTransaction);
-
+        transactionRepository.save(sendTransaction);
         accountService.saveAccount(fromAccounts);
         accountService.saveAccount(toAccounts);
         return transferRequestConverter.convert(fromAccounts, toAccounts);
