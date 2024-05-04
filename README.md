@@ -3,7 +3,9 @@ This project implements a Spring Boot API for managing bank accounts, allowing u
 
 # Prerequisites
 Git installed on your system
+
 Docker installed and running
+
 A code editor or IDE of your choice (e.g.,Eclipse, IntelliJ IDEA)
 
 # Setting Up the Project
