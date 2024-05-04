@@ -1,1 +1,7 @@
+kaankucuk\markantbank\IntegrationTestSupport.class
+kaankucuk\markantbank\controller\TransactionControllerIntegrationTest.class
+kaankucuk\markantbank\TestSupport.class
+kaankucuk\markantbank\service\TransactionServiceTest.class
+kaankucuk\markantbank\controller\AccountControllerIntegrationTest.class
 kaankucuk\markantbank\MarkantbankApplicationTests.class
+kaankucuk\markantbank\service\AccountServiceTest.class

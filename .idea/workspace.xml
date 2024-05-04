@@ -5,32 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ca664e5-3c51-4839-9984-f21594a0c149" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/exception/SenderAndRecieverIsSameException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/kaankucuk/markantbank/IntegrationTestSupport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/kaankucuk/markantbank/TestSupport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/kaankucuk/markantbank/controller/AccountControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/kaankucuk/markantbank/controller/TransactionControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/kaankucuk/markantbank/service/AccountServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/controller/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/controller/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/controller/TransactionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/dto/TransferRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/dto/TransferRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/dto/WithdrawRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/dto/WithdrawRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/exception/GeneralExceptionAdvisor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/exception/GeneralExceptionAdvisor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/service/AccountService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/service/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/service/TransactionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/kaankucuk/markantbank/service/TransactionServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/kaankucuk/markantbank/service/TransactionServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/controller/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/controller/AccountController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/controller/TransactionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/controller/TransactionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/dto/AccountDto$AccountDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/dto/AccountDto$AccountDtoBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/dto/TransferRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/dto/TransferRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/dto/WithdrawRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/dto/WithdrawRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/exception/GeneralExceptionAdvisor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/exception/GeneralExceptionAdvisor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/model/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/model/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/model/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/model/Transaction.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/service/AccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/service/AccountService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/service/TransactionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/service/TransactionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/markantbank-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/markantbank-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/markantbank-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/markantbank-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-kaankucuk.markantbank.MarkantbankApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-kaankucuk.markantbank.MarkantbankApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/kaankucuk.markantbank.MarkantbankApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/kaankucuk.markantbank.MarkantbankApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/kaankucuk/markantbank/controller/AccountControllerIntegrationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/kaankucuk/markantbank/controller/AccountControllerIntegrationTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/kaankucuk/markantbank/service/AccountServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/kaankucuk/markantbank/service/AccountServiceTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/kaankucuk/markantbank/service/TransactionServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/kaankucuk/markantbank/service/TransactionServiceTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,7 +102,7 @@
     "Spring Boot.MarkantbankApplication.executor": "Run",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "integrationtests",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/KaanPC/Desktop/projectlast/BankOps",
@@ -275,7 +266,7 @@
       <workItem from="1714716456332" duration="425000" />
       <workItem from="1714727611519" duration="12066000" />
       <workItem from="1714745453687" duration="3609000" />
-      <workItem from="1714811124831" duration="14541000" />
+      <workItem from="1714811124831" duration="19313000" />
     </task>
     <servers />
   </component>
