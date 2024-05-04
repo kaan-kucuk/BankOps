@@ -43,6 +43,7 @@ Replace {accountNumber} with the actual account number you want to retrieve the 
 # Deposit Money:
 
 POST http://localhost:9090/api/operations/deposit
+
 Content-Type: application/json
 
 {
@@ -53,6 +54,7 @@ Content-Type: application/json
 # Withdraw Money:
 
 POST http://localhost:9090/api/operations/withdraw
+
 Content-Type: application/json
 
 {
@@ -63,6 +65,7 @@ Content-Type: application/json
 # Transfer Money:
 
 PUT http://localhost:9090/api/operations/transfer
+
 Content-Type: application/json
 
 {
