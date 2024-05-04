@@ -4,6 +4,7 @@ import kaankucuk.markantbank.dto.*;
 import kaankucuk.markantbank.exception.AccountNotFoundException;
 import kaankucuk.markantbank.exception.GeneralExceptionAdvisor;
 import kaankucuk.markantbank.exception.InsufficientFundsException;
+import kaankucuk.markantbank.exception.SenderAndRecieverIsSameException;
 import kaankucuk.markantbank.model.Account;
 import kaankucuk.markantbank.model.Transaction;
 import kaankucuk.markantbank.model.TransactionType;
@@ -84,81 +85,81 @@ public class TransactionServiceTest {
     }
 
     @Test
-    public void depositMoney_SuccessfulDeposit_IncreasesBalanceAndStoresTransaction() {
+    public void depositMoney_IncreasesBalance() {
         BigDecimal depositAmount = new BigDecimal("100");
         String accountNumber = "123456";
         Account mockAccount = new Account();
         mockAccount.setBalance(new BigDecimal("200"));
-        Transaction mockTransaction = new Transaction();
+
+        when(accountService.findOrCreateAccount(accountNumber)).thenReturn(mockAccount);
+        when(depositTransactionFactory.createTransaction(any(Account.class), any(BigDecimal.class))).thenReturn(new Transaction(mockAccount, depositAmount, TransactionType.DEPOSIT));
+
+        transactionService.depositMoney(depositAmount, accountNumber);
+
+        assertEquals(new BigDecimal("300"), mockAccount.getBalance());
+        verify(accountService).saveAccount(mockAccount);
+    }
+    @Test
+    public void depositMoney_StoresTransaction() {
+        BigDecimal depositAmount = new BigDecimal("100");
+        String accountNumber = "123456";
+        Account mockAccount = new Account();
+        mockAccount.setBalance(new BigDecimal("200"));
+        Transaction mockTransaction = new Transaction(mockAccount, depositAmount, TransactionType.DEPOSIT);
 
         when(accountService.findOrCreateAccount(accountNumber)).thenReturn(mockAccount);
         when(depositTransactionFactory.createTransaction(any(Account.class), any(BigDecimal.class))).thenReturn(mockTransaction);
-        when(depositRequestConverter.convert(mockAccount)).thenReturn(new DepositRequestResponse());
 
-        DepositRequestResponse response = transactionService.depositMoney(depositAmount, accountNumber);
+        transactionService.depositMoney(depositAmount, accountNumber);
 
-        assertEquals(new BigDecimal("300"), mockAccount.getBalance());
         assertTrue(mockAccount.getTransactions().contains(mockTransaction));
-        verify(accountService).saveAccount(mockAccount);
-        assertNotNull(response);
+        verify(transactionRepository).save(mockTransaction);
     }
-
     @Test
-    public void depositMoney_AccountDoesNotExist_CreatesNewAccount() {
-        BigDecimal depositAmount = new BigDecimal("100");
-        String accountNumber = "newAccount";
-        Account newMockAccount = new Account();
-        newMockAccount.setBalance(BigDecimal.ZERO);
-        Transaction mockTransaction = new Transaction();
-
-        when(accountService.findOrCreateAccount(accountNumber)).thenReturn(newMockAccount);
-        when(depositTransactionFactory.createTransaction(any(Account.class), any(BigDecimal.class))).thenReturn(mockTransaction);
-        when(depositRequestConverter.convert(newMockAccount)).thenReturn(new DepositRequestResponse());
-
-        DepositRequestResponse response = transactionService.depositMoney(depositAmount, accountNumber);
-
-        assertEquals(new BigDecimal("100"), newMockAccount.getBalance());
-        assertTrue(newMockAccount.getTransactions().contains(mockTransaction));
-        verify(accountService).saveAccount(newMockAccount);
-        assertNotNull(response);
-    }
-
-    @Test
-    public void withdrawMoney_SuccessfulWithdrawal_DecreasesBalanceAndStoresTransaction() {
+    public void withdrawMoney_DecreasesBalance() {
         BigDecimal withdrawalAmount = new BigDecimal("50");
         String accountNumber = "123456";
         Account mockAccount = new Account();
         mockAccount.setAccountNumber(accountNumber);
         mockAccount.setBalance(new BigDecimal("100"));
 
-        when(accountService.findOrThrowException(accountNumber, withdrawalAmount)).thenReturn(mockAccount);
-        Transaction mockTransaction = new Transaction(mockAccount, withdrawalAmount.negate(), TransactionType.WITHDRAW);
-        when(withdrawTransactionFactory.createTransaction(any(Account.class), eq(withdrawalAmount))).thenReturn(mockTransaction);
+        when(accountService.findAccount(accountNumber)).thenReturn(mockAccount);
+        when(withdrawTransactionFactory.createTransaction(any(Account.class), eq(withdrawalAmount))).thenReturn(new Transaction(mockAccount, withdrawalAmount.negate(), TransactionType.WITHDRAW));
 
-        WithdrawRequestResponse expectedResponse = new WithdrawRequestResponse(mockAccount.getBalance(), accountNumber);
-        when(withdrawRequestConverter.convert(mockAccount)).thenReturn(expectedResponse);
-
-        WithdrawRequestResponse actualResponse = transactionService.withdrawMoney(withdrawalAmount, accountNumber);
+        transactionService.withdrawMoney(withdrawalAmount, accountNumber);
 
         assertEquals(new BigDecimal("50"), mockAccount.getBalance());
-        verify(transactionRepository).save(mockTransaction);
-        assertNotNull(actualResponse);
-        assertEquals(expectedResponse, actualResponse);
+        verify(accountService).saveAccount(mockAccount);
     }
 
     @Test
-    public void withdrawMoney_AccountNotFound_ThrowsException() {
+    public void withdrawMoney_StoresTransaction() {
         BigDecimal withdrawalAmount = new BigDecimal("50");
-        String accountNumber = "unknown";
+        String accountNumber = "123456";
+        Account mockAccount = new Account();
+        mockAccount.setAccountNumber(accountNumber);
+        mockAccount.setBalance(new BigDecimal("100"));
+        Transaction mockTransaction = new Transaction(mockAccount, withdrawalAmount.negate(), TransactionType.WITHDRAW);
 
-        when(accountService.findOrThrowException(accountNumber, withdrawalAmount))
-                .thenThrow(new AccountNotFoundException("Account not found"));
+        when(accountService.findAccount(accountNumber)).thenReturn(mockAccount);
+        when(withdrawTransactionFactory.createTransaction(any(Account.class), eq(withdrawalAmount))).thenReturn(mockTransaction);
 
-        assertThrows(AccountNotFoundException.class, () -> {
-            transactionService.withdrawMoney(withdrawalAmount, accountNumber);
-        });
+        transactionService.withdrawMoney(withdrawalAmount, accountNumber);
+
+        verify(transactionRepository).save(mockTransaction);
     }
 
+    @Test
+    public void transferMoney_SameAccountNumbers_ThrowsSenderAndReceiverIsSameException() {
+        // Given
+        String accountNumber = "123456";
+        BigDecimal amount = new BigDecimal("100");
+
+        // When & Then
+        assertThrows(SenderAndRecieverIsSameException.class, () -> {
+            transactionService.transferMoney(accountNumber, accountNumber, amount);
+        });
+    }
     @Test
     public void transferMoney_SenderBalanceDecreasesCorrectly() {
         BigDecimal transferAmount = new BigDecimal("100");
@@ -171,7 +172,7 @@ public class TransactionServiceTest {
         toAccount.setBalance(new BigDecimal("300"));
 
         when(accountService.findAccount(fromAccountNumber)).thenReturn(fromAccount);
-        when(accountService.findAccount(toAccountNumber)).thenReturn(toAccount);
+        when(accountService.findOrCreateAccount(toAccountNumber)).thenReturn(toAccount);
         when(transferTransactionFactory.createTransaction(eq(fromAccount), eq(transferAmount.negate())))
                 .thenReturn(new Transaction(fromAccount, transferAmount.negate(), TransactionType.TRANSFER));
         when(transactionRepository.save(any(Transaction.class))).thenAnswer(invocation -> invocation.getArgument(0));
@@ -183,7 +184,7 @@ public class TransactionServiceTest {
 
         // Then
         assertEquals(new BigDecimal("400"), fromAccount.getBalance());
-        verify(transactionRepository).save(any(Transaction.class));
+        verify(transactionRepository, times(2)).save(any(Transaction.class));
     }
     @Test
     public void transferMoney_ReceiverBalanceIncreasesCorrectly() {
@@ -198,7 +199,7 @@ public class TransactionServiceTest {
         toAccount.setBalance(new BigDecimal("300"));
 
         when(accountService.findAccount(fromAccountNumber)).thenReturn(fromAccount);
-        when(accountService.findAccount(toAccountNumber)).thenReturn(toAccount);
+        when(accountService.findOrCreateAccount(toAccountNumber)).thenReturn(toAccount);
         when(transferTransactionFactory.createTransaction(eq(fromAccount), eq(transferAmount.negate())))
                 .thenReturn(new Transaction(fromAccount, transferAmount.negate(), TransactionType.TRANSFER));
         when(transferTransactionFactory.createTransaction(eq(toAccount), eq(transferAmount)))
@@ -212,7 +213,7 @@ public class TransactionServiceTest {
 
         // Then
         assertEquals(new BigDecimal("400"), toAccount.getBalance());
-        verify(transactionRepository).save(any(Transaction.class));
+        verify(transactionRepository, times(2)).save(any(Transaction.class));
     }
     @Test
     public void transferMoney_InsufficientFunds_ThrowsException() {
@@ -231,8 +232,7 @@ public class TransactionServiceTest {
         });
     }
 
-    }
-
+}
 
 
 

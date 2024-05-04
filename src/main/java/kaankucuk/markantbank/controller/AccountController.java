@@ -24,9 +24,9 @@ public class AccountController {
         return ResponseEntity.ok(accountService.getAllAccountsDto());
     }
 
-    @GetMapping("/getBalance")
-    public ResponseEntity<AccountDto> findAccountDtoByAccountNumber(@RequestBody AccountDto accountDto) {
-        AccountDto result = accountService.findBalanceByAccountNumber(accountDto.getAccountNumber());
+    @GetMapping("/getBalance/{accountNumber}")
+    public ResponseEntity<AccountDto> findAccountDtoByAccountNumber(@PathVariable String accountNumber) {
+        AccountDto result = accountService.findBalanceByAccountNumber(accountNumber);
         return ResponseEntity.ok(result);
     }
 

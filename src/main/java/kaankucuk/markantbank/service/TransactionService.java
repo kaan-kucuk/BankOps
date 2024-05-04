@@ -3,6 +3,7 @@ package kaankucuk.markantbank.service;
 import jakarta.transaction.Transactional;
 import kaankucuk.markantbank.dto.*;
 import kaankucuk.markantbank.exception.InsufficientFundsException;
+import kaankucuk.markantbank.exception.SenderAndRecieverIsSameException;
 import kaankucuk.markantbank.model.Account;
 import kaankucuk.markantbank.model.Transaction;
 import kaankucuk.markantbank.model.TransactionType;
@@ -42,13 +43,17 @@ public class TransactionService {
         account.setBalance(account.getBalance().add(amountOfDeposit));
         Transaction transaction = transactionStrategies.get(TransactionType.DEPOSIT).createTransaction(account, amountOfDeposit);
         account.getTransactions().add(transaction);
+        transactionRepository.save(transaction);
         accountService.saveAccount(account);
         return depositRequestConverter.convert(account);
     }
 
 
     public WithdrawRequestResponse withdrawMoney(BigDecimal amountOfWithdraw, String accountNumber) {
-        Account account = accountService.findOrThrowException(accountNumber, amountOfWithdraw);
+        Account account = accountService.findAccount(accountNumber);
+        if (account.getBalance().compareTo(amountOfWithdraw) < 0) {
+            throw new InsufficientFundsException("Insufficient funds, Withdraw money is bigger than current balance");
+        }
         account.setBalance(account.getBalance().subtract(amountOfWithdraw));
         Transaction transaction = transactionStrategies.get(TransactionType.WITHDRAW).createTransaction(account, amountOfWithdraw);
         account.getTransactions().add(transaction);
@@ -59,8 +64,11 @@ public class TransactionService {
 
     @Transactional
     public TransferRequestResponse transferMoney(String fromAccount, String toAccount, BigDecimal amountOfMoney) {
+        if(fromAccount.equals(toAccount)) {
+            throw new SenderAndRecieverIsSameException("Sender and Reciever account numbers can not be same");
+        }
         Account fromAccounts = accountService.findAccount(fromAccount);
-        Account toAccounts = accountService.findAccount(toAccount);
+        Account toAccounts = accountService.findOrCreateAccount(toAccount);
         if (fromAccounts.getBalance().compareTo(amountOfMoney) < 0) {
             throw new InsufficientFundsException("Insufficient funds, money is bigger than current balance");
         } else {
@@ -73,6 +81,7 @@ public class TransactionService {
         Transaction recieveTransaction = transactionStrategies.get(TransactionType.TRANSFER).createTransaction(toAccounts, amountOfMoney);
         toAccounts.getTransactions().add(recieveTransaction);
         transactionRepository.save(sendTransaction);
+        transactionRepository.save(recieveTransaction);
         accountService.saveAccount(fromAccounts);
         accountService.saveAccount(toAccounts);
         return transferRequestConverter.convert(fromAccounts, toAccounts);
