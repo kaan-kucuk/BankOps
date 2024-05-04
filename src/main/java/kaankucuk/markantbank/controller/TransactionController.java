@@ -35,7 +35,7 @@ public class TransactionController {
     }
 
     @PutMapping("/transfer")
-    public ResponseEntity<String> transferMoney(@RequestBody TransferRequest transferRequest) {
+    public ResponseEntity<String> transferMoney(@Valid @RequestBody TransferRequest transferRequest) {
         transactionService.transferMoney(transferRequest.getFromAccount(), transferRequest.getToAccount(), transferRequest.getAmount());
         return ResponseEntity.ok("Transfer Completed");
     }

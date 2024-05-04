@@ -5,10 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ca664e5-3c51-4839-9984-f21594a0c149" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/exception/SenderAndRecieverIsSameException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/kaankucuk/markantbank/IntegrationTestSupport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/kaankucuk/markantbank/TestSupport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/kaankucuk/markantbank/controller/AccountControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/kaankucuk/markantbank/controller/TransactionControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/kaankucuk/markantbank/service/AccountServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/controller/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/controller/TransactionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/dto/TransferRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/dto/TransferRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/dto/WithdrawRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/dto/WithdrawRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/exception/GeneralExceptionAdvisor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/exception/GeneralExceptionAdvisor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/service/AccountService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/service/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kaankucuk/markantbank/service/TransactionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/kaankucuk/markantbank/service/TransactionServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/kaankucuk/markantbank/service/TransactionServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/controller/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/controller/AccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/controller/TransactionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/controller/TransactionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/dto/AccountDto$AccountDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/dto/AccountDto$AccountDtoBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/dto/TransferRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/dto/TransferRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/dto/WithdrawRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/dto/WithdrawRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/exception/GeneralExceptionAdvisor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/exception/GeneralExceptionAdvisor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/model/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/model/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/model/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/model/Transaction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/service/AccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/service/AccountService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/service/TransactionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaankucuk/markantbank/service/TransactionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/kaankucuk/markantbank/service/TransactionServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/kaankucuk/markantbank/service/TransactionServiceTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,15 +72,35 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.MarkantbankApplication.executor": "Run",
+    "JUnit.AccountControllerIntegrationTest.executor": "Run",
+    "JUnit.AccountControllerIntegrationTest.findAccountDtoByAccountNumber_ShouldReturnAccountDto.executor": "Run",
+    "JUnit.AccountControllerIntegrationTest.getAllAccounts_ShouldReturnAccounts.executor": "Run",
+    "JUnit.AccountServiceTest.executor": "Run",
+    "JUnit.AccountServiceTest.findBalanceByAccountNumber_ReturnsCorrectAccountDto.executor": "Run",
+    "JUnit.AccountServiceTest.findBalanceByAccountNumber_ThrowsAccountNotFoundException.executor": "Run",
+    "JUnit.AccountServiceTest.findOrCreateAccount_CreatesNewAccountWhenNotFound.executor": "Run",
+    "JUnit.AccountServiceTest.findOrCreateAccount_FindsExistingAccount.executor": "Run",
+    "JUnit.AccountServiceTest.getAllAccountsDto_ReturnsAllAccounts.executor": "Run",
+    "JUnit.AccountServiceTest.saveAccount_SavesAccountSuccessfully.executor": "Run",
+    "JUnit.TransactionControllerIntegrationTest.depositMoney_ShouldCreateTransactionAndUpdateBalance.executor": "Run",
+    "JUnit.TransactionControllerIntegrationTest.executor": "Run",
+    "JUnit.TransactionControllerIntegrationTest.transferMoney_ShouldThrowMethodArgumentNotValid_WhenAmountIsTooSmall.executor": "Run",
+    "JUnit.TransactionControllerIntegrationTest.withdrawMoney_ShouldReturnOK.executor": "Run",
     "JUnit.TransactionServiceTest.depositMoney_AccountDoesNotExist_CreatesNewAccount.executor": "Run",
+    "JUnit.TransactionServiceTest.depositMoney_IncreasesBalance.executor": "Run",
     "JUnit.TransactionServiceTest.depositMoney_LessThanMinimumAmount_ShouldThrowException.executor": "Run",
     "JUnit.TransactionServiceTest.depositMoney_NegativeAmount_ThrowsIllegalArgumentException.executor": "Run",
+    "JUnit.TransactionServiceTest.depositMoney_StoresTransaction.executor": "Run",
     "JUnit.TransactionServiceTest.depositMoney_SuccessfulDeposit_IncreasesBalanceAndStoresTransaction.executor": "Run",
+    "JUnit.TransactionServiceTest.executor": "Run",
     "JUnit.TransactionServiceTest.transferMoney_InsufficientFunds_ThrowsException.executor": "Run",
     "JUnit.TransactionServiceTest.transferMoney_ReceiverBalanceIncreasesCorrectly.executor": "Run",
+    "JUnit.TransactionServiceTest.transferMoney_SameAccountNumbers_ThrowsSenderAndReceiverIsSameException.executor": "Run",
     "JUnit.TransactionServiceTest.transferMoney_SenderBalanceDecreasesCorrectly.executor": "Run",
     "JUnit.TransactionServiceTest.transferMoney_SuccessfulTransfer_UpdatesBalancesAndSavesTransactions.executor": "Run",
     "JUnit.TransactionServiceTest.withdrawMoney_AccountNotFound_ThrowsException.executor": "Run",
+    "JUnit.TransactionServiceTest.withdrawMoney_DecreasesBalance.executor": "Run",
+    "JUnit.TransactionServiceTest.withdrawMoney_StoresTransaction.executor": "Run",
     "JUnit.TransactionServiceTest.withdrawMoney_SuccessfulWithdrawal_DecreasesBalanceAndStoresTransaction.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -68,10 +111,10 @@
     "Spring Boot.MarkantbankApplication.executor": "Run",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "unittests",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/smartLITE VS700/Desktop/BankApp",
+    "last_opened_file_path": "C:/Users/KaanPC/Desktop/projectlast/BankOps",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -92,10 +135,11 @@
       <recent name="kaankucuk.markantbank.exception" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="kaankucuk.markantbank.controller" />
       <recent name="kaankucuk.markantbank.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TransactionServiceTest.transferMoney_InsufficientFunds_ThrowsException">
+  <component name="RunManager" selected="JUnit.TransactionServiceTest">
     <configuration name="MarkantbankApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="kaankucuk.markantbank.MarkantbankApplication" />
       <module name="markantbank" />
@@ -109,7 +153,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TransactionServiceTest.transferMoney_InsufficientFunds_ThrowsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AccountControllerIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="markantbank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kaankucuk.markantbank.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="kaankucuk.markantbank.controller" />
+      <option name="MAIN_CLASS_NAME" value="kaankucuk.markantbank.controller.AccountControllerIntegrationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="markantbank" />
       <extension name="coverage">
         <pattern>
@@ -118,14 +177,44 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="kaankucuk.markantbank.service" />
-      <option name="MAIN_CLASS_NAME" value="kaankucuk.markantbank.service.TransactionServiceTest" />
-      <option name="METHOD_NAME" value="transferMoney_InsufficientFunds_ThrowsException" />
+      <option name="MAIN_CLASS_NAME" value="kaankucuk.markantbank.service.AccountServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TransactionControllerIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="markantbank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kaankucuk.markantbank.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="kaankucuk.markantbank.controller" />
+      <option name="MAIN_CLASS_NAME" value="kaankucuk.markantbank.controller.TransactionControllerIntegrationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TransactionControllerIntegrationTest.transferMoney_ShouldThrowMethodArgumentNotValid_WhenAmountIsTooSmall" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="markantbank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kaankucuk.markantbank.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="kaankucuk.markantbank.controller" />
+      <option name="MAIN_CLASS_NAME" value="kaankucuk.markantbank.controller.TransactionControllerIntegrationTest" />
+      <option name="METHOD_NAME" value="transferMoney_ShouldThrowMethodArgumentNotValid_WhenAmountIsTooSmall" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TransactionServiceTest.transferMoney_ReceiverBalanceIncreasesCorrectly" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TransactionServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="markantbank" />
       <extension name="coverage">
         <pattern>
@@ -135,56 +224,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="kaankucuk.markantbank.service" />
       <option name="MAIN_CLASS_NAME" value="kaankucuk.markantbank.service.TransactionServiceTest" />
-      <option name="METHOD_NAME" value="transferMoney_ReceiverBalanceIncreasesCorrectly" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TransactionServiceTest.transferMoney_SenderBalanceDecreasesCorrectly" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="markantbank" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="kaankucuk.markantbank.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="kaankucuk.markantbank.service" />
-      <option name="MAIN_CLASS_NAME" value="kaankucuk.markantbank.service.TransactionServiceTest" />
-      <option name="METHOD_NAME" value="transferMoney_SenderBalanceDecreasesCorrectly" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TransactionServiceTest.transferMoney_SuccessfulTransfer_UpdatesBalancesAndSavesTransactions" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="markantbank" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="kaankucuk.markantbank.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="kaankucuk.markantbank.service" />
-      <option name="MAIN_CLASS_NAME" value="kaankucuk.markantbank.service.TransactionServiceTest" />
-      <option name="METHOD_NAME" value="transferMoney_SuccessfulTransfer_UpdatesBalancesAndSavesTransactions" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TransactionServiceTest.withdrawMoney_AccountNotFound_ThrowsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="markantbank" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="kaankucuk.markantbank.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="kaankucuk.markantbank.service" />
-      <option name="MAIN_CLASS_NAME" value="kaankucuk.markantbank.service.TransactionServiceTest" />
-      <option name="METHOD_NAME" value="withdrawMoney_AccountNotFound_ThrowsException" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -199,11 +239,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TransactionServiceTest.transferMoney_InsufficientFunds_ThrowsException" />
-        <item itemvalue="JUnit.TransactionServiceTest.transferMoney_ReceiverBalanceIncreasesCorrectly" />
-        <item itemvalue="JUnit.TransactionServiceTest.transferMoney_SenderBalanceDecreasesCorrectly" />
-        <item itemvalue="JUnit.TransactionServiceTest.transferMoney_SuccessfulTransfer_UpdatesBalancesAndSavesTransactions" />
-        <item itemvalue="JUnit.TransactionServiceTest.withdrawMoney_AccountNotFound_ThrowsException" />
+        <item itemvalue="JUnit.TransactionServiceTest" />
+        <item itemvalue="JUnit.AccountServiceTest" />
+        <item itemvalue="JUnit.TransactionControllerIntegrationTest" />
+        <item itemvalue="JUnit.AccountControllerIntegrationTest" />
+        <item itemvalue="JUnit.TransactionControllerIntegrationTest.transferMoney_ShouldThrowMethodArgumentNotValid_WhenAmountIsTooSmall" />
       </list>
     </recent_temporary>
   </component>
@@ -235,6 +275,7 @@
       <workItem from="1714716456332" duration="425000" />
       <workItem from="1714727611519" duration="12066000" />
       <workItem from="1714745453687" duration="3609000" />
+      <workItem from="1714811124831" duration="14541000" />
     </task>
     <servers />
   </component>

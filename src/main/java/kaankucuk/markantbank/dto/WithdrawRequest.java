@@ -14,5 +14,6 @@ import java.math.BigDecimal;
 public class WithdrawRequest {
     @DecimalMin(value = "0.01", message = "Amount must be greater than zero")
     private BigDecimal amountOfWithdraw;
+    @NotBlank(message = "Account number cannot be blank")
     private String accountNumber;
 }

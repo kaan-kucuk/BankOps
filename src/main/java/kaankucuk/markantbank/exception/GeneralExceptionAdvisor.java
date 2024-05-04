@@ -39,7 +39,10 @@ public class GeneralExceptionAdvisor extends ResponseEntityExceptionHandler {
     public ResponseEntity<?> handleInsufficientFundsException(InsufficientFundsException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
-
+    @ExceptionHandler(SenderAndRecieverIsSameException.class)
+    public ResponseEntity<?> senderAndRecieverIsSameException(SenderAndRecieverIsSameException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+    }
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> handleGeneralException(Exception ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 public class TransferRequest {
     @NotBlank(message = "Sender account number cannot be blank")
     private String fromAccount;
-    @NotBlank(message = " Reciever account number cannot be blank")
+    @NotBlank(message = "Receiver account number cannot be blank")
     private String toAccount;
     @DecimalMin(value = "0.01", message = "Amount must be greater than zero")
     private BigDecimal amount;

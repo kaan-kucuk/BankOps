@@ -48,13 +48,6 @@ public class AccountService {
         });
     }
 
-    public Account findOrThrowException(String accountNumber, BigDecimal amount) {
-        Account account = accountRepository.findByAccountNumber(accountNumber).orElseThrow(() -> new AccountNotFoundException("Account not found"));
-        if (account.getBalance().compareTo(amount) < 0) {
-            throw new InsufficientFundsException("Insufficient funds, Withdraw money is bigger than current balance");
-        }
-        return account;
-    }
 
     public Account findAccount(String accountNumber) {
         Account account = accountRepository.findByAccountNumber(accountNumber).orElseThrow(() -> new AccountNotFoundException("Account not found"));
