@@ -3,6 +3,7 @@ package kaankucuk.markantbank.service;
 import kaankucuk.markantbank.dto.*;
 import kaankucuk.markantbank.exception.AccountNotFoundException;
 import kaankucuk.markantbank.exception.GeneralExceptionAdvisor;
+import kaankucuk.markantbank.exception.InsufficientFundsException;
 import kaankucuk.markantbank.model.Account;
 import kaankucuk.markantbank.model.Transaction;
 import kaankucuk.markantbank.model.TransactionType;
@@ -43,6 +44,8 @@ public class TransactionServiceTest {
     private TransactionFactory depositTransactionFactory;
     @Mock
     private TransactionFactory withdrawTransactionFactory;
+    @Mock
+    private TransactionFactory transferTransactionFactory;
     private Map<TransactionType, TransactionFactory> transactionStrategies;
 
     @BeforeEach
@@ -51,9 +54,13 @@ public class TransactionServiceTest {
         transactionStrategies = new HashMap<>();
         setupTransactionFactory(depositTransactionFactory, TransactionType.DEPOSIT);
         setupTransactionFactory(withdrawTransactionFactory, TransactionType.WITHDRAW);
+        setupTransactionFactory(transferTransactionFactory, TransactionType.TRANSFER);
+
 
         transactionStrategies.put(TransactionType.DEPOSIT, depositTransactionFactory);
         transactionStrategies.put(TransactionType.WITHDRAW, withdrawTransactionFactory);
+        transactionStrategies.put(TransactionType.TRANSFER, transferTransactionFactory);
+
 
         transactionService = new TransactionService(
                 depositRequestConverter,
@@ -151,6 +158,81 @@ public class TransactionServiceTest {
             transactionService.withdrawMoney(withdrawalAmount, accountNumber);
         });
     }
-}
+
+    @Test
+    public void transferMoney_SenderBalanceDecreasesCorrectly() {
+        BigDecimal transferAmount = new BigDecimal("100");
+        String fromAccountNumber = "123456";
+        String toAccountNumber = "654321";
+        Account fromAccount = new Account();
+        Account toAccount = new Account();
+
+        fromAccount.setBalance(new BigDecimal("500"));
+        toAccount.setBalance(new BigDecimal("300"));
+
+        when(accountService.findAccount(fromAccountNumber)).thenReturn(fromAccount);
+        when(accountService.findAccount(toAccountNumber)).thenReturn(toAccount);
+        when(transferTransactionFactory.createTransaction(eq(fromAccount), eq(transferAmount.negate())))
+                .thenReturn(new Transaction(fromAccount, transferAmount.negate(), TransactionType.TRANSFER));
+        when(transactionRepository.save(any(Transaction.class))).thenAnswer(invocation -> invocation.getArgument(0));
+        when(transferRequestConverter.convert(any(Account.class), any(Account.class)))
+                .thenReturn(new TransferRequestResponse());
+
+        // When
+        transactionService.transferMoney(fromAccountNumber, toAccountNumber, transferAmount);
+
+        // Then
+        assertEquals(new BigDecimal("400"), fromAccount.getBalance());
+        verify(transactionRepository).save(any(Transaction.class));
+    }
+    @Test
+    public void transferMoney_ReceiverBalanceIncreasesCorrectly() {
+        // Given
+        BigDecimal transferAmount = new BigDecimal("100");
+        String fromAccountNumber = "123456";
+        String toAccountNumber = "654321";
+        Account fromAccount = new Account();
+        Account toAccount = new Account();
+
+        fromAccount.setBalance(new BigDecimal("500"));
+        toAccount.setBalance(new BigDecimal("300"));
+
+        when(accountService.findAccount(fromAccountNumber)).thenReturn(fromAccount);
+        when(accountService.findAccount(toAccountNumber)).thenReturn(toAccount);
+        when(transferTransactionFactory.createTransaction(eq(fromAccount), eq(transferAmount.negate())))
+                .thenReturn(new Transaction(fromAccount, transferAmount.negate(), TransactionType.TRANSFER));
+        when(transferTransactionFactory.createTransaction(eq(toAccount), eq(transferAmount)))
+                .thenReturn(new Transaction(toAccount, transferAmount, TransactionType.TRANSFER));
+        when(transactionRepository.save(any(Transaction.class))).thenAnswer(invocation -> invocation.getArgument(0));
+        when(transferRequestConverter.convert(any(Account.class), any(Account.class)))
+                .thenReturn(new TransferRequestResponse());
+
+        // When
+        transactionService.transferMoney(fromAccountNumber, toAccountNumber, transferAmount);
+
+        // Then
+        assertEquals(new BigDecimal("400"), toAccount.getBalance());
+        verify(transactionRepository).save(any(Transaction.class));
+    }
+    @Test
+    public void transferMoney_InsufficientFunds_ThrowsException() {
+        // Given
+        BigDecimal transferAmount = new BigDecimal("600");
+        String fromAccountNumber = "123456";
+        Account fromAccount = new Account();
+
+        fromAccount.setBalance(new BigDecimal("500"));
+
+        when(accountService.findAccount(fromAccountNumber)).thenReturn(fromAccount);
+
+        // When & Then
+        assertThrows(InsufficientFundsException.class, () -> {
+            transactionService.transferMoney(fromAccountNumber, "654321", transferAmount);
+        });
+    }
+
+    }
+
+
 
 
