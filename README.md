@@ -12,11 +12,13 @@ A code editor or IDE of your choice (e.g.,Eclipse, IntelliJ IDEA)
 
  
 Bash
+
 git clone https://github.com/kaan-kucuk/BankOps.git
 
 # 2) Navigate to the Project Directory:
 
 Bash
+
 cd BankOps
 
 # 3) Run the Application:
@@ -24,10 +26,11 @@ cd BankOps
 Start the containerized application using Docker Compose:
 
 Bash
+
 docker-compose up
 
  # Using the API
-Once the application is running, you can use a tool like Postman or curl to interact with the API endpoints. Here are some examples:
+Once the application is running, you can use a tool like #Postman or curl to interact with the API endpoints. Here are some examples:
 
 # Get All Accounts:
 
