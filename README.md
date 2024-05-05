@@ -25,6 +25,10 @@ cd BankOps
 
 # 3) Run the Application:
 
+Bash
+
+docker build -t markantbank:1.0 .
+
 Start the containerized application using Docker Compose:
 
 Bash
