@@ -1,6 +1,7 @@
 package kaankucuk.markantbank.controller;
 
 import kaankucuk.markantbank.IntegrationTestSupport;
+import kaankucuk.markantbank.TestSupport;
 import kaankucuk.markantbank.dto.AccountDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
@@ -25,7 +26,7 @@ class AccountControllerIntegrationTest extends IntegrationTestSupport {
 
     @Test
     public void findAccountDtoByAccountNumber_ShouldReturnAccountDto() throws Exception {
-        AccountDto accountDto = new AccountDto("123456", new BigDecimal("1000"));
+        AccountDto accountDto = TestSupport.createAccountDto("123456", new BigDecimal("1000"));
         when(accountService.findBalanceByAccountNumber("123456")).thenReturn(accountDto);
 
         mockMvc.perform(get(ACCOUNT_API + "/getBalance/" + accountDto.getAccountNumber())
