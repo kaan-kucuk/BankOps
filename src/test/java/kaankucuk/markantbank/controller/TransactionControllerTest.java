@@ -1,6 +1,7 @@
 package kaankucuk.markantbank.controller;
 
 import kaankucuk.markantbank.IntegrationTestSupport;
+import kaankucuk.markantbank.TestSupport;
 import kaankucuk.markantbank.dto.DepositRequest;
 import kaankucuk.markantbank.dto.TransferRequest;
 import kaankucuk.markantbank.dto.WithdrawRequest;
@@ -19,7 +20,7 @@ class TransactionControllerIntegrationTest extends IntegrationTestSupport {
 
     @Test
     public void depositMoney_ShouldReturnOK() throws Exception {
-        DepositRequest depositRequest = new DepositRequest(new BigDecimal("100.00"), "123456");
+        DepositRequest depositRequest = TestSupport.createDepositRequest("123456", new BigDecimal("100.00"));
         String jsonRequest = objectMapper.writeValueAsString(depositRequest);
 
         mockMvc.perform(post(TRANSACTION_API + "/deposit")
@@ -30,7 +31,7 @@ class TransactionControllerIntegrationTest extends IntegrationTestSupport {
     }
     @Test
     public void depositMoney_ShouldThrowMethodArgumentNotValid_WhenAmountIsTooSmall() throws Exception {
-        DepositRequest depositRequest = new DepositRequest(new BigDecimal("0"), "123456");
+        DepositRequest depositRequest = TestSupport.createDepositRequest("123456", new BigDecimal("0.00"));
         String jsonRequest = objectMapper.writeValueAsString(depositRequest);
 
         mockMvc.perform(post(TRANSACTION_API + "/deposit")
@@ -42,7 +43,7 @@ class TransactionControllerIntegrationTest extends IntegrationTestSupport {
 
     @Test
     public void depositMoney_ShouldThrowMethodArgumentNotValid_WhenAccountNumberIsBlank() throws Exception {
-        DepositRequest depositRequest = new DepositRequest(new BigDecimal("100"), "");
+        DepositRequest depositRequest = TestSupport.createDepositRequest("", new BigDecimal("100.00"));
         String jsonRequest = objectMapper.writeValueAsString(depositRequest);
 
         mockMvc.perform(post(TRANSACTION_API + "/deposit")
@@ -54,7 +55,7 @@ class TransactionControllerIntegrationTest extends IntegrationTestSupport {
 
     @Test
     public void withdrawMoney_ShouldReturnOK() throws Exception {
-        WithdrawRequest withdrawRequest = new WithdrawRequest(new BigDecimal("100.00"), "123456");
+        WithdrawRequest withdrawRequest = TestSupport.createWithdrawRequest("123456", new BigDecimal("100.00"));
         String jsonRequest = objectMapper.writeValueAsString(withdrawRequest);
 
         mockMvc.perform(post(TRANSACTION_API + "/withdraw")
@@ -66,7 +67,7 @@ class TransactionControllerIntegrationTest extends IntegrationTestSupport {
 
     @Test
     public void withdrawMoney_ShouldThrowMethodArgumentNotValid_WhenAccountNumberIsBlank() throws Exception {
-        WithdrawRequest withdrawRequest = new WithdrawRequest(new BigDecimal("50.00"), "");
+        WithdrawRequest withdrawRequest = TestSupport.createWithdrawRequest("", new BigDecimal("100.00"));
         String jsonRequest = objectMapper.writeValueAsString(withdrawRequest);
 
         mockMvc.perform(post(TRANSACTION_API + "/withdraw")
@@ -78,7 +79,7 @@ class TransactionControllerIntegrationTest extends IntegrationTestSupport {
 
     @Test
     public void withdrawMoney_ShouldThrowMethodArgumentNotValid_WhenAmountIsTooSmall() throws Exception {
-        WithdrawRequest withdrawRequest = new WithdrawRequest(new BigDecimal("0"), "123456");
+        WithdrawRequest withdrawRequest = TestSupport.createWithdrawRequest("123456", new BigDecimal("0.00"));
         String jsonRequest = objectMapper.writeValueAsString(withdrawRequest);
 
         mockMvc.perform(post(TRANSACTION_API + "/withdraw")
@@ -90,7 +91,7 @@ class TransactionControllerIntegrationTest extends IntegrationTestSupport {
 
     @Test
     public void transferMoney_ShouldReturnOK() throws Exception {
-        TransferRequest transferRequest = new TransferRequest("123456", "654321", new BigDecimal("100.00"));
+        TransferRequest transferRequest = TestSupport.createTransferRequest("123456", "654321", new BigDecimal("100.00"));
         String jsonRequest = objectMapper.writeValueAsString(transferRequest);
 
         mockMvc.perform(put(TRANSACTION_API + "/transfer")
@@ -101,7 +102,7 @@ class TransactionControllerIntegrationTest extends IntegrationTestSupport {
 
     @Test
     public void transferMoney_ShouldThrowMethodArgumentNotValid_WhenToAccountIsBlank() throws Exception {
-        TransferRequest transferRequest = new TransferRequest("123456", "", new BigDecimal("50.00"));
+        TransferRequest transferRequest =TestSupport.createTransferRequest("123456", "", new BigDecimal("100.00"));
         String jsonRequest = objectMapper.writeValueAsString(transferRequest);
 
         mockMvc.perform(put(TRANSACTION_API + "/transfer")
@@ -113,7 +114,7 @@ class TransactionControllerIntegrationTest extends IntegrationTestSupport {
 
     @Test
     public void transferMoney_ShouldThrowMethodArgumentNotValid_WhenFromAccountIsBlank() throws Exception {
-        TransferRequest transferRequest = new TransferRequest("", "654321", new BigDecimal("50.00"));
+        TransferRequest transferRequest = TestSupport.createTransferRequest("", "654321", new BigDecimal("100.00"));
         String jsonRequest = objectMapper.writeValueAsString(transferRequest);
 
         mockMvc.perform(put(TRANSACTION_API + "/transfer")
@@ -125,7 +126,7 @@ class TransactionControllerIntegrationTest extends IntegrationTestSupport {
 
     @Test
     public void transferMoney_ShouldThrowMethodArgumentNotValid_WhenAmountIsTooSmall() throws Exception {
-        TransferRequest transferRequest = new TransferRequest("123456", "654321", new BigDecimal("0"));
+        TransferRequest transferRequest = TestSupport.createTransferRequest("123456", "654321", new BigDecimal("0.00"));
         String jsonRequest = objectMapper.writeValueAsString(transferRequest);
 
         mockMvc.perform(put(TRANSACTION_API + "/transfer")
